@@ -622,11 +622,24 @@ public class CFOcountPOM
 		return bargraph;
 	}
 	
+	public static WebElement clickIndustrySpeCriticalM(WebDriver driver)			//"Statutory" Method to search Labour compliance High risk value.
+	{
+		bargraph = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined highcharts-drilldown-data-label'])[5]"));
+		return bargraph;
+	}
+	
 	public static WebElement clickIndustrySpeHigh(WebDriver driver)				//"Statutory" Method to search Labour compliance High risk value.
 	{
 		bargraph = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined highcharts-drilldown-data-label'])[14]"));
 		return bargraph;
 	}
+	
+	public static WebElement clickIndustrySpeHighM(WebDriver driver)				//"Statutory" Method to search Labour compliance High risk value.
+	{
+		bargraph = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined highcharts-drilldown-data-label'])[12]"));
+		return bargraph;
+	}
+	
 	
 	public static WebElement clickBSEHigh(WebDriver driver)				//"Statutory" Method to search Labour compliance High risk value.
 	{
@@ -897,7 +910,7 @@ public class CFOcountPOM
 	
 	public static WebElement clickRiskMediumClosedTimely(WebDriver driver)		//Method to search 'Medium Risk - In Time' compliance of Risk Summary.
 	{
-	//	risksummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[11]"));
+		risksummary = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[11]"));
 		return risksummary;
 	}//*[@id="highcharts-6"]/svg/g[5]/g[1]/rect[1]
 	
@@ -1072,6 +1085,12 @@ public class CFOcountPOM
 		return department;
 	}
 	
+	public static WebElement clickHumanClosedTimelym(WebDriver driver)		//Method to search 'High Risk' bar of Department Summary.
+	{
+		department = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[33]"));
+		return department;
+	}
+	
 	public static WebElement clickAccountClosedTimely(WebDriver driver)		//Method to search 'High Risk' bar of Department Summary.
 	{
 		department = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[31]"));
@@ -1087,6 +1106,12 @@ public class CFOcountPOM
 	public static WebElement clickHumanOverdue(WebDriver driver)		//Method to search 'High Risk' bar of Department Summary.
 	{
 		department = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[59]"));
+		return department;
+	}
+	
+	public static WebElement clickHumanOverduem(WebDriver driver)		//Method to search 'High Risk' bar of Department Summary.
+	{
+		department = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[38]"));
 		return department;
 	}
 	
@@ -1111,6 +1136,12 @@ public class CFOcountPOM
 	public static WebElement clickHumanPendingReview(WebDriver driver)		//Method to search 'High Risk' bar of Department Summary.
 	{
 		department = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[72]"));
+		return department;
+	}
+	
+	public static WebElement clickHumanPendingReviewm(WebDriver driver)		//Method to search 'High Risk' bar of Department Summary.
+	{
+		department = driver.findElement(By.xpath("(//*[@class='highcharts-label highcharts-data-label highcharts-data-label-color-undefined '])[43]"));
 		return department;
 	}
 	
@@ -2091,7 +2122,7 @@ public class CFOcountPOM
 		CFOcountPOM.closeCategories_Compliances(driver).click();		//Closing the 'Compliances' pup up.
 		Thread.sleep(2000);
 	
-		int n1 = elementsList1.size();
+	/*	int n1 = elementsList1.size();
 		int value = 0;
 		int count1 = 0;
 		for(int i = 0; i < n1; i++)
@@ -2130,7 +2161,7 @@ public class CFOcountPOM
 			Thread.sleep(3000);
 			CFOcountPOM.closeCategories_Compliances(driver).click();		//Closing the 'Compliances' pup up.
 			Thread.sleep(2000);
-		}	
+		}	*/
 		if(CategoriesCountDas == CatcountGrid)
 		{
 			test.log(LogStatus.PASS, "Number of Categories grid matches to Dashboard Categories  Count.");
@@ -2387,7 +2418,7 @@ public class CFOcountPOM
 			CFOcountPOM.readLow(driver).click();						//Clicking on Low value of Pie Chart of 'Not Completed'.
 		}
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(250));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
 		try
 		{
@@ -2601,7 +2632,7 @@ public class CFOcountPOM
 			CFOcountPOM.readLow(driver).click();						//Clicking on Low value of Pie Chart of 'Not Completed'.
 		}
 		
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(100));
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
 		try
 		{
@@ -3077,7 +3108,7 @@ public class CFOcountPOM
  	
  	public static void GraphCount1(WebDriver driver, ExtentTest test, String risk, int complianceCount, String Compliance)throws InterruptedException
 	{
-		Thread.sleep(500);
+		Thread.sleep(1000);
 		if(risk.equalsIgnoreCase("Critical"))
 		{
 			CFOcountPOM.readCritical(driver).click();					//Clicking on Critical value of Pie Chart of 'Not Completed'.
@@ -3095,25 +3126,22 @@ public class CFOcountPOM
 			CFOcountPOM.readLow(driver).click();						//Clicking on Low value of Pie Chart of 'Not Completed'.
 		}
 		
-		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(260));
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(120));
 		
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
 		try
 		{
 			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='k-selectable']")));
-			Thread.sleep(10000);
+			Thread.sleep(8000);
 		}
 		catch(Exception e)
 		{
 			
 		}
 		
-		 CFOcountPOM.clickExportImage(driver).click();
-			Thread.sleep(4000);
-			test.log(LogStatus.PASS, "Excel file Export Successfully");
-			Thread.sleep(5000);
+		
 			
-			 By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[17]/a");
+			 By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 			
 				wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 				Thread.sleep(4000);
@@ -3157,8 +3185,11 @@ public class CFOcountPOM
 		{
 			
 		}*/
-		
 		Thread.sleep(1000);
+		 CFOcountPOM.clickExportImage(driver).click();
+			Thread.sleep(4000);
+			test.log(LogStatus.PASS, "Excel file Export Successfully");
+			
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("window.scrollBy(0,300)");						//Scrolling down window by 1000 px.
 		
@@ -3338,7 +3369,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[16]/a[3]");
 			test.log(LogStatus.PASS, "Excel file Export Successfully");
 			Thread.sleep(3000);
 			
-By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[16]/a");
+By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[3]/td[17]/a");
 
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			Thread.sleep(4000);
@@ -3669,7 +3700,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 			test.log(LogStatus.PASS, "Excel file Export Successfully");
 			Thread.sleep(3000);
 			
-By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[16]/a");
+By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[17]/a");
 
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			Thread.sleep(4000);

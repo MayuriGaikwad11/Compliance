@@ -3,59 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="approval.ApprovalcountStatutory">
+      <class name="auditor.AuditorcountStatutory">
         <methods>
-          <include name="RiskSummaryHighStatutory"/>
-          <include name="StandardReportDetailed"/>
-          <include name="ClosedTimely_PieChartPeriod"/>
-          <include name="StandardReportCategoryIn"/>
-          <include name="ComplianceDocuments"/>
-          <include name="StandardReportCategory"/>
-          <include name="StandardReportUserIn"/>
-          <include name="StandardReportCriticalRisk"/>
-          <include name="StandardReportOverallIN"/>
-          <include name="StandardReportRiskIN"/>
-          <include name="SupportTicket"/>
-          <include name="MyNotifications"/>
-          <include name="Overdue_PieChartPeriod"/>
-          <include name="StandardReportLocation"/>
-          <include name="DepartmentSummaryAccountStatutory"/>
-          <include name="ComplianceDocumentsIN"/>
-          <include name="AssignmentReport"/>
-          <include name="ClosedTimely_PieChart"/>
           <include name="DetailedReportIn"/>
-          <include name="TotalCompliancesCountMatch"/>
-          <include name="InternalMsg"/>
-          <include name="NotCompleted_PieChart"/>
-          <include name="StandardReportOverall"/>
-          <include name="StandardReportRisk"/>
-          <include name="GradingReportStatutory"/>
-          <include name="CriticalDocuments"/>
-          <include name="DetailedReport"/>
-          <include name="NewsLetter"/>
-          <include name="StandardReportDepartment"/>
-          <include name="ComplianceRepository"/>
-          <include name="ActDocuments"/>
-          <include name="StandardReportUser"/>
-          <include name="UsersCountMatch"/>
-          <include name="StandardReportLocationIN"/>
-          <include name="Overdue_PieChart"/>
-          <include name="rejected_PieChart"/>
-          <include name="pendingForReview_PieChartPeriod"/>
-          <include name="MessageCenter"/>
-          <include name="pendingForReview_PieChart"/>
-          <include name="StandardReportDepartmentIN"/>
-          <include name="NotCompleted_PieChartPeriod"/>
-          <include name="StandardReportDetailedIN"/>
-          <include name="StandardReportCriticalRiskIN"/>
-          <include name="UniqueCompliancesCountMatch"/>
-          <include name="ClosedDelayed_PieChart"/>
-          <include name="SummaryofOverdueCompliances"/>
           <include name="setBrowser"/>
-          <include name="DailyUpdates"/>
-          <include name="complianceCalendar"/>
         </methods>
-      </class> <!-- approval.ApprovalcountStatutory -->
+      </class> <!-- auditor.AuditorcountStatutory -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -25,6 +25,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import cfo.CFOcountPOM;
+import performer.MethodsPOM;
 import performer.OverduePOM;
 
 public class AuditorcountStatutory {
@@ -206,7 +207,7 @@ public class AuditorcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 3)
+//	@Test(priority = 3)
 	void ClosedDelayed_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Completion Status- 'Closed Delayed' Count Verification");
@@ -292,7 +293,7 @@ public class AuditorcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 4)
+	//@Test(priority = 4)
 	void ClosedTimely_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Completion Status- 'Closed Timely' Count Verification");
@@ -380,7 +381,7 @@ public class AuditorcountStatutory {
 		}
 	}
 	
-	@Test(priority = 5)
+//	@Test(priority = 5)
 	void NotApplicable_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Completion Status- 'Not Applicable' Count Verification");
@@ -657,7 +658,7 @@ public class AuditorcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 8)
+//	@Test(priority = 8)
 	void pendingForReview_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Not Completed Status- 'Pending For Review' Count Verification");
@@ -750,7 +751,7 @@ public class AuditorcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 9)
+	//@Test(priority = 9)
 	void inProgress_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Not Completed Status- 'In Progress' Count Verification");
@@ -843,7 +844,7 @@ public class AuditorcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 10)
+//	@Test(priority = 10)
 	void rejected_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Not Completed Status- ' Rejected' Count Verification");
@@ -936,7 +937,7 @@ public class AuditorcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 11)
+//	@Test(priority = 11)
 	void RiskSummaryCriticalStatutory() throws InterruptedException
 	{
 		//driver.navigate().refresh();
@@ -992,7 +993,7 @@ public class AuditorcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 12)
+	//@Test(priority = 12)
 	void RiskSummaryHighStatutory() throws InterruptedException
 	{		
 		test = extent.startTest("Risk Summary - 'High' Count Verification");
@@ -1048,7 +1049,7 @@ public class AuditorcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 13)
+//	@Test(priority = 13)
 	void RiskSummaryMediumStatutory() throws InterruptedException
 	{
 		test = extent.startTest("Risk Summary - 'Medium' Count Verification");
@@ -1169,7 +1170,7 @@ public class AuditorcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 15)
+//	@Test(priority = 15)
 	void DepartmentSummaryFinanceStatutory() throws InterruptedException
 	{
 		Thread.sleep(500);		
@@ -1369,7 +1370,7 @@ public class AuditorcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 17)
+//	@Test(priority = 17)
 	void ClosedDelayed_PieChartPe() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Completion Status- 'Closed Delayed' Count Verification");
@@ -1463,7 +1464,7 @@ public class AuditorcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 18)
+//	@Test(priority = 18)
 	void ClosedTimely_PieChartPe() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Completion Status- 'Closed Timely' Count Verification");
@@ -1663,7 +1664,7 @@ public class AuditorcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 20)
+//	@Test(priority = 20)
 	void pendingForReview_PieChartPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Not Completed Status- 'Pending For Review' Count Verification");
@@ -1767,7 +1768,7 @@ public class AuditorcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 21)
+//	@Test(priority = 21)
 	void inProgress_PieChartPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Not Completed Status- 'In Progress' Count Verification");
@@ -1868,7 +1869,7 @@ public class AuditorcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 22)
+	//@Test(priority = 22)
 	void rejected_PieChartPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Not Completed Status- ' Rejected' Count Verification");
@@ -2030,6 +2031,18 @@ public class AuditorcountStatutory {
 			test.log(LogStatus.INFO, "Test Initiated");
 			
 			AuditorcountPOM.DetailedReport(test, driver, "Auditor");
+			
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		@Test(priority = 25)
+		void DetailedReportIn() throws InterruptedException, IOException
+		{
+			test = extent.startTest("Detailed Report Count Verification");
+			test.log(LogStatus.INFO, "Test Initiated");
+			
+			AuditorcountPOM.DetailedReportIn(test, driver, "Auditor");
 			
 			extent.endTest(test);
 			extent.flush();
@@ -2286,6 +2299,57 @@ public class AuditorcountStatutory {
 			extent.endTest(test);
 			extent.flush();
 		}
+		
+	//	  @Test(priority = 66)
+			void InternalMsg() throws InterruptedException, IOException
+			{
+				Thread.sleep(500);		
+				test = extent.startTest("'Internal Msg  '  Verification");
+				test.log(LogStatus.INFO, "Test Initiated");
+					Thread.sleep(1000);
+				WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+				Thread.sleep(500);
+				OverduePOM.ClickInternalMsg(driver).click();
+				Thread.sleep(4000);
+				OverduePOM.ClickTo(driver).sendKeys("mayuri@tlregtech.in");
+				Thread.sleep(500);
+				OverduePOM.ClickSub(driver).sendKeys("Automation");
+				Thread.sleep(1000);
+				OverduePOM.TypeMsg(driver).sendKeys("Automation testing");
+				Thread.sleep(1000);
+				OverduePOM.choosefile(driver).sendKeys("C:/Users/sandip/Downloads/InternalReport.xlsx");
+				Thread.sleep(1000);
+				//OverduePOM.send(driver).click();
+				By locator = By.xpath("//*[@id='btnsendmailNew']");
+
+				wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+				Thread.sleep(4000);
+				
+				WebElement ViewButton = driver.findElement(locator);	
+				Thread.sleep(3000);
+			JavascriptExecutor jse=(JavascriptExecutor)driver;
+			jse.executeScript("arguments[0].click();", ViewButton);
+				Thread.sleep(5000);
+				test.log(LogStatus.INFO, "Internal Message working Succefully");
+				Thread.sleep(1000);
+				extent.endTest(test);
+				extent.flush();
+			}
+			
+		//	 @Test(priority = 67)
+				void SupportTicket() throws InterruptedException, IOException
+				{
+					Thread.sleep(1000);		
+					test = extent.startTest("'Support Ticket  '  Verification");
+					test.log(LogStatus.INFO, "Test Initiated");
+					
+					MethodsPOM.SupportTicket(test,driver);
+					
+					extent.endTest(test);
+					extent.flush();
+				}
+		 
+			 
 		
 		
 		

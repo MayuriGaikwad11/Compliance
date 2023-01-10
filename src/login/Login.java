@@ -68,9 +68,13 @@ public class Login
 			{
 				ans1 = getAnswerFE(que1);						//Storing the answer in ans variable.
 			}
-			else if(method.equalsIgnoreCase("MGMT") )
+			else if(method.equalsIgnoreCase("GMT") )
 			{
 				ans1 = getAnswerMGMT(que1);						//Storing the answer in ans variable.
+			}
+			else if(method.equalsIgnoreCase("mgmt") )
+			{
+				ans1 = getAnswermGMT(que1);						//Storing the answer in ans variable.
 			}
 			else if(method.equalsIgnoreCase("Auditor") )
 			{
@@ -114,9 +118,13 @@ public class Login
 			{
 				ans2 = getAnswerFE(que2);						//Storing the answer in ans variable.
 			}
-			else if(method.equalsIgnoreCase("MGMT") )
+			else if(method.equalsIgnoreCase("GMT") )
 			{
 				ans2 = getAnswerMGMT(que2);						//Storing the answer in ans variable.
+			}
+			else if(method.equalsIgnoreCase("mgmt") )
+			{
+				ans2 = getAnswermGMT(que2);						//Storing the answer in ans variable.
 			}
 			else if(method.equalsIgnoreCase("Auditor") )
 			{
@@ -230,6 +238,20 @@ public class Login
 			ans = "dog";
 		if(ans.equalsIgnoreCase("car"))
 			ans = "red";
+		return ans.toLowerCase();							//Returning answer and converting to LowerCase too.  
+	}
+	
+	public static String getAnswermGMT(String que)			//Method created to extract last word from question
+	{														//as it is the answer of the question.
+		String last = que.substring(que.lastIndexOf(" "));	//We are selecting word after last " ".
+		int len = last.length();							
+		String ans = last.substring(1, len-1);				//We are neglecting letters from string of position first " " and last "?"
+		if(ans.equalsIgnoreCase("boss"))
+			ans = "boss";
+		if(ans.equalsIgnoreCase("car"))
+			ans = "red";
+		if(ans.equalsIgnoreCase("name"))
+			ans = "name";
 		return ans.toLowerCase();							//Returning answer and converting to LowerCase too.  
 	}
 	
