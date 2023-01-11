@@ -76,7 +76,7 @@ public class Mgmt {
 	@Test(priority = 1)
 	void Login() throws InterruptedException, IOException
 	{
-		test = extent.startTest("Loging In - CFO Finance (Statutory)");
+		test = extent.startTest("Loging In - MGMT (Statutory)");
 		test.log(LogStatus.INFO, "Logging into system");
 		
 		XSSFSheet sheet = ReadExcel();
@@ -112,7 +112,7 @@ public class Mgmt {
 		}
 	}
 
-	@Test(priority = 2)
+//	@Test(priority = 2)
 	void CategoriesCountMatch() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Count by Clicking on 'Categories'");

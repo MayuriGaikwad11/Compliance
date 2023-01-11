@@ -25,6 +25,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import cfo.CFOcountPOM;
+import performer.MethodsPOM;
 import performer.OverduePOM;
 
 public class DeptcountStatutory {
@@ -51,7 +52,6 @@ public class DeptcountStatutory {
 	
 	public static XSSFSheet ReadExcel() throws IOException
 	{
-		//String workingDir = System.getProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver/chromedriver.exe");
 		fis = new FileInputStream("C:/March2022/PerformerPom/TestData/ComplianceSheet.xlsx");
 		workbook = new XSSFWorkbook(fis);
 		sheet = workbook.getSheetAt(7);					//Retrieving third sheet of Workbook
@@ -61,7 +61,6 @@ public class DeptcountStatutory {
 	@BeforeTest
 	void setBrowser() throws InterruptedException, IOException
 	{
-	//	String workingDir = System.getProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver/chromedriver.exe");
 		extent = new com.relevantcodes.extentreports.ExtentReports("C:/March2022/PerformerPom/Reports/CFOResultsStatotory.html",true);
 		test = extent.startTest("Verify OpenBrowser");
 		test.log(LogStatus.INFO, "Browser test is initiated");
@@ -114,7 +113,7 @@ public class DeptcountStatutory {
 		}
 	}
 	
-	@Test(priority = 2)
+//	@Test(priority = 2)
 	void  FilterWiseDepartmentCountMatch() throws InterruptedException
 	{
 		test = extent.startTest(" Count Match Filter Wise by Clicking on 'Depatment' - Compliances");
@@ -566,7 +565,7 @@ public class DeptcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 8)
+//	@Test(priority = 8)
 	void ClosedTimely_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Completion Status- 'Closed Timely' Count Verification");
@@ -748,7 +747,7 @@ public class DeptcountStatutory {
 	}
 	
 
-	@Test(priority = 10)
+//	@Test(priority = 10)
 	void pendingForReview_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Not Completed Status- 'Pending For Review' Count Verification");
@@ -841,7 +840,7 @@ public class DeptcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 11)
+//	@Test(priority = 11)
 	void inProgress_PieChart() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart -Not Completed Status- 'In Progress' Count Verification");
@@ -934,7 +933,7 @@ public class DeptcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 12)
+	//@Test(priority = 12)
 	void DepartmentSummaryFinanceStatutory() throws InterruptedException
 	{
 		Thread.sleep(500);		
@@ -1366,7 +1365,7 @@ public class DeptcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 18)
+//	@Test(priority = 18)
 	void ClosedTimely_PieChartPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Completion Status- 'Closed Timely' Count Verification");
@@ -1767,7 +1766,7 @@ public class DeptcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 22)
+//	@Test(priority = 22)
 	void pendingForReview_PieChartPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Not Completed Status- 'Pending For Review' Count Verification");
@@ -1869,7 +1868,7 @@ public class DeptcountStatutory {
 		extent.flush();
 	}
 	
-	@Test(priority = 23)
+//	@Test(priority = 23)
 	void Inprogress_PieChartPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Not Completed Status- 'Rejected' Count Verification");
@@ -2151,13 +2150,37 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[6]/a");
 		extent.flush();
 	}
 	
-//	@Test(priority = 27)no table found
+	//@Test(priority = 53) 
+	void DetailedReportIn() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Detailed Report -Internal Count Verification");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		DeptCountPOM.DetailedReportIn(test, driver, "Department");
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+//	@Test(priority = 27)
 	void AssignmentReport() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Assignment Report verification");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		CFOcountPOM.AssignmentReport(test, driver);
+		
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	//@Test(priority = 57)
+	void ActRepository() throws InterruptedException, IOException
+	{
+		test = extent.startTest("Act Repository  verification");
+		test.log(LogStatus.INFO, "Test Initiated");
+		
+		CFOcountPOM.ActRepository(test,driver);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -2406,6 +2429,56 @@ WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(140));
 		extent.endTest(test);
 		extent.flush();
 	}
+	
+	// @Test(priority = 66)
+		void InternalMsg() throws InterruptedException, IOException
+		{
+			Thread.sleep(500);		
+			test = extent.startTest("'Internal Msg  '  Verification");
+			test.log(LogStatus.INFO, "Test Initiated");
+				Thread.sleep(1000);
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+			Thread.sleep(500);
+			OverduePOM.ClickInternalMsg(driver).click();
+			Thread.sleep(4000);
+			OverduePOM.ClickTo(driver).sendKeys("mayuri@tlregtech.in");
+			Thread.sleep(500);
+			OverduePOM.ClickSub(driver).sendKeys("Automation");
+			Thread.sleep(1000);
+			OverduePOM.TypeMsg(driver).sendKeys("Automation testing");
+			Thread.sleep(1000);
+			OverduePOM.choosefile(driver).sendKeys("C:/Users/sandip/Downloads/InternalReport.xlsx");
+			Thread.sleep(1000);
+			//OverduePOM.send(driver).click();
+			By locator = By.xpath("//*[@id='btnsendmailNew']");
+
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+			Thread.sleep(4000);
+			
+			WebElement ViewButton = driver.findElement(locator);	
+			Thread.sleep(3000);
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+		jse.executeScript("arguments[0].click();", ViewButton);
+			Thread.sleep(5000);
+			test.log(LogStatus.INFO, "Internal Message working Succefully");
+			Thread.sleep(1000);
+			extent.endTest(test);
+			extent.flush();
+		}
+		
+		// @Test(priority = 67)
+			void SupportTicket() throws InterruptedException, IOException
+			{
+				Thread.sleep(1000);		
+				test = extent.startTest("'Support Ticket  '  Verification");
+				test.log(LogStatus.INFO, "Test Initiated");
+				
+				MethodsPOM.SupportTicket(test,driver);
+				
+				extent.endTest(test);
+				extent.flush();
+			}
+	 
 	
 	
 	

@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="auditor.AuditorcountStatutory">
+      <class name="departmentHead.DeptcountStatutory">
         <methods>
-          <include name="DetailedReportIn"/>
           <include name="setBrowser"/>
+          <include name="ActRepository"/>
         </methods>
-      </class> <!-- auditor.AuditorcountStatutory -->
+      </class> <!-- departmentHead.DeptcountStatutory -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

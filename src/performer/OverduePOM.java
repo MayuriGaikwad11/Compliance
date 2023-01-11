@@ -633,6 +633,25 @@ public class OverduePOM
 		return performer;
 	}
 	
+	public static WebElement clickcomplianceStaASD(WebDriver driver)			//Searching 'My Workspace' element.
+	{
+		performer = driver.findElement(By.xpath("(//input[@type='checkbox'])[77]"));	//*[@onclick='CheckProduct();']
+		return performer;
+	}
+	
+	public static WebElement clickcomplianceStaASDIN(WebDriver driver)			//Searching 'My Workspace' element.
+	{
+		performer = driver.findElement(By.xpath("(//span[@class='k-checkbox-wrapper'])[70]"));	//*[@onclick='CheckProduct();']
+		return performer;
+	}
+	
+	public static WebElement clickcomplianceStaASA(WebDriver driver)			//Searching 'My Workspace' element.
+	{
+		performer = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[89]"));	//*[@onclick='CheckProduct();']
+		return performer;
+	}
+	
+	
 	public static WebElement clickcomplianceStaASApp(WebDriver driver)			//Searching 'My Workspace' element.
 	{
 		performer = driver.findElement(By.xpath("(//span[@class='k-checkbox-wrapper'])[41]"));	//*[@onclick='CheckProduct();']
@@ -660,6 +679,12 @@ public class OverduePOM
 	public static WebElement clickcomplianceINASM(WebDriver driver)			//Searching 'My Workspace' element.
 	{
 		performer = driver.findElement(By.xpath("(//span[@class='k-checkbox-wrapper'])[86]"));	//*[@onclick='CheckProduct();']
+		return performer;
+	}
+	
+	public static WebElement clickcomplianceINASMA(WebDriver driver)			//Searching 'My Workspace' element.
+	{
+		performer = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[90]"));	//*[@onclick='CheckProduct();']
 		return performer;
 	}
 	

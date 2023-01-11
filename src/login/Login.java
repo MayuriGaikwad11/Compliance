@@ -6,9 +6,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import performer.OverduePOM;
 
 public class Login 
@@ -18,8 +21,9 @@ public class Login
 	
 	public static void BrowserSetup(String URL)
 	{
-		System.setProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver1/chromedriver.exe");
+	//	System.setProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver1/chromedriver.exe");
 		//System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver"); //Set the Chrome driver variable
+		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();					//Created new Chrome driver instance. 
 		driver.manage().window().maximize();			//Set window size to maximum.
 		driver.get(URL);								//Set the URL of WebApplication.

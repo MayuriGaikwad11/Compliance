@@ -122,6 +122,13 @@ public class CFOcountPOM
 		return compliances;
 	} 
 	
+	public static WebElement clickBitaAurangabad(WebDriver driver)		//Method for reading Compliances value on Dashboard
+	{
+		compliances = driver.findElement(By.xpath("(//li[@class='k-item k-first'])[2]"));
+		return compliances;
+	} 
+	
+	
 	public static WebElement clickBPVT(WebDriver driver)		//Method for reading Compliances value on Dashboard
 	{
 		compliances = driver.findElement(By.xpath("(//span[@class='k-in'])[7]"));
@@ -2182,6 +2189,54 @@ public class CFOcountPOM
 		CFOcountPOM.closeCategories(driver).click();
 		Thread.sleep(2000);
 		
+	}
+	
+	public static void Compliances(WebDriver driver, ExtentTest test) throws InterruptedException, IOException
+	{
+		Thread.sleep(2000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		String string_Compliances =CFOcountPOM.readCompliances(driver).getText();		//Storing old value of Statutory overdue.
+	int	CompliancesCountDas = Integer.parseInt(string_Compliances);
+		CFOcountPOM.readCompliances(driver).click();
+		Thread.sleep(500);
+		
+		litigationPerformer.MethodsPOM.progress(driver);
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
+		Thread.sleep(1000);
+		CFOcountPOM.clickExportImage(driver).click();                    //export excel
+		Thread.sleep(5000);
+		test.log(LogStatus.PASS, "Excel file Export Successfully");	
+		CFOcountPOM.clickLocation(driver).click();
+		Thread.sleep(500);
+		CFOcountPOM.clickBitaAurangabad(driver).click();
+		Thread.sleep(3000);
+		CFOcountPOM.clickClear(driver).click();
+		Thread.sleep(2000);
+		test.log(LogStatus.PASS, "Clear Button is working");	
+		js.executeScript("window.scrollBy(0,500)");
+		Thread.sleep(3000);
+		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on total items count
+		Thread.sleep(500);
+		String item = CFOcountPOM.readTotalItemsD(driver).getText();	//Reading total items String value
+		String[] bits = item.split(" ");								//Splitting the String
+		String compliancesCount = bits[bits.length - 2];				//Getting the second last word (total number of users)
+		int ComcountGrid = Integer.parseInt(compliancesCount);
+		if(CompliancesCountDas == ComcountGrid)
+		{
+			test.log(LogStatus.PASS, "Number of Compliances grid matches to Dashboard Compliances  Count.");
+			test.log(LogStatus.INFO, "No of Compliances in the grid = "+ComcountGrid+" | Dashboard Compliances  Count = "+CompliancesCountDas);
+		}
+		else
+		{
+			test.log(LogStatus.FAIL, "Number of compliances does not matches to Dashboard Statutory Compliances Count.");
+			test.log(LogStatus.INFO, "No of Compliances in the grid = "+ComcountGrid+" | Dashboard Compliances  Count = "+CompliancesCountDas);
+		}
+		js.executeScript("window.scrollBy(500,0)");						//Scrolling UP window by 2000 px.
+		driver.switchTo().defaultContent();
+		Thread.sleep(3000);
+		CFOcountPOM.closeCategories(driver).click();
 	}
 	
 	public static void CountGrading(WebDriver driver, ExtentTest test, String Risk) throws InterruptedException, IOException

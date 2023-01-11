@@ -1532,10 +1532,26 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[18]/a[3]");
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid1']/div[3]")));	//Wait till records table gets visible
 	Thread.sleep(1000);
 	OverduePOM.clickcomplianceTypeAS(driver).click();
+	Thread.sleep(2000);
+//	OverduePOM.clickcomplianceStaASA(driver).click();
+	By locatorR1 = By.xpath("(//*[@class='k-checkbox-wrapper'])[89]");
+	wait.until(ExpectedConditions.presenceOfElementLocated(locatorR1));
+	Thread.sleep(4000);
+	
+	WebElement click = driver.findElement(locatorR1);	
+	Thread.sleep(4000);
+jse.executeScript("arguments[0].click();", click);
+	Thread.sleep(4000);
+	By locatorR2 = By.xpath("(//*[@class='k-checkbox-wrapper'])[90]");
+	wait.until(ExpectedConditions.presenceOfElementLocated(locatorR2));
+	Thread.sleep(4000);
+	
+	WebElement click1 = driver.findElement(locatorR2);	
+	Thread.sleep(4000);
+jse.executeScript("arguments[0].click();", click1);
+	Thread.sleep(4000);
 	Thread.sleep(1000);
-	OverduePOM.clickcomplianceStaASM(driver).click();
-	Thread.sleep(1000);
-	OverduePOM.clickcomplianceINASM(driver).click();
+//	OverduePOM.clickcomplianceINASMA(driver).click();
 	
 		Thread.sleep(3000);
 		By locator1 = By.xpath("//*[@id='grid1']/div[3]/table/tbody/tr[1]/td[27]/a[1]");
