@@ -1,6 +1,7 @@
 package login;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -23,11 +24,52 @@ public class Login
 	{
 	//	System.setProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver1/chromedriver.exe");
 		//System.setProperty("webdriver.chrome.driver","/usr/bin/chromedriver"); //Set the Chrome driver variable
+	
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();					//Created new Chrome driver instance. 
+			driver = new ChromeDriver();	
+		
+		//	WebDriverManager.edgedriver().setup();
+	//	driver = new EdgeDriver();					//Created new Chrome driver instance. 
+	//	WebDriverManager.firefoxdriver().setup();
+	//	driver = new FirefoxDriver();
+		
 		driver.manage().window().maximize();			//Set window size to maximum.
 		driver.get(URL);								//Set the URL of WebApplication.
 	}
+	
+	public static void BrowserSetup1(String URL,String browser) throws Exception
+	{
+	
+		if(browser.equalsIgnoreCase("firefox")){
+			 //create firefox instance
+				System.setProperty("webdriver.gecko.driver", "C:/March2022/PerformerPom/FireDriver/setup-stub.exe");
+				driver = new FirefoxDriver();
+			}
+			//Check if parameter passed as 'chrome'
+			else if(browser.equalsIgnoreCase("chrome")){
+				//set path to chromedriver.exe
+				System.setProperty("webdriver.chrome.driver","C:/March2022/PerformerPom/Driver1/chromedriver.exe");
+				
+	            //create chrome instance
+				driver = new ChromeDriver();
+			}
+			//Check if parameter passed as 'Edge'
+					else if(browser.equalsIgnoreCase("Edge")){
+						//set path to Edge.exeMicrosoftWebDriver
+						System.setProperty("webdriver.edge.driver","C:/March2022/PerformerPom/edgeDriver/msedgedriver.exe");
+						//create Edge instance
+						driver = new EdgeDriver();
+					}
+			else{
+				//If no browser passed throw exception
+				throw new Exception("Browser is not correct");
+			}
+			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		driver.manage().window().maximize();			//Set window size to maximum.
+		driver.get(URL);								//Set the URL of WebApplication.
+	}
+	
 	
 	public static WebDriver UserLogin(String username, String password, String method) throws InterruptedException
 	{		

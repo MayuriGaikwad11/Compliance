@@ -1,5 +1,6 @@
 package cfo;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
@@ -22,6 +23,9 @@ import org.testng.annotations.Test;
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
+
+import performer.MethodsPOM;
+import performer.OverduePOM;
 
 public class Mgmt {
 	
@@ -112,7 +116,7 @@ public class Mgmt {
 		}
 	}
 
-//	@Test(priority = 2)
+	@Test(priority = 2)
 	void CategoriesCountMatch() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Count by Clicking on 'Categories'");
@@ -145,13 +149,13 @@ public class Mgmt {
 		CFOcountPOM.clickExportImage(driver).click();                    //export excel
 		Thread.sleep(5000);
 		test.log(LogStatus.PASS, "Excel file Export Successfully");	
-	/*	CFOcountPOM.clickLocation(driver).click();
+		CFOcountPOM.clickLocation(driver).click();
 		Thread.sleep(500);
-		CFOcountPOM.clickAVIPL(driver).click();
-		Thread.sleep(500);
+		CFOcountPOM.clickBitaAurangabad(driver).click();
+		Thread.sleep(3000);
 		CFOcountPOM.clickClear(driver).click();
 		Thread.sleep(2000);
-		test.log(LogStatus.PASS, "Clear Button is working");	*/
+		test.log(LogStatus.PASS, "Clear Button is working");	
 		js.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(3000);
 		CFOcountPOM.readTotalItemsD(driver).click();					//Clicking on total items count
@@ -247,13 +251,13 @@ public class Mgmt {
 		CFOcountPOM.clickExportImage(driver).click();
 		Thread.sleep(5000);
 		test.log(LogStatus.PASS, "Excel file Export Successfully");
-	/*	CFOcountPOM.clickLocationPe(driver).click();
+		CFOcountPOM.clickLocationPe(driver).click();
 		Thread.sleep(1000);
 		CFOcountPOM.clickExpand1(driver).click();
 		Thread.sleep(1000);
-		CFOcountPOM.clickAR(driver).click();
+		CFOcountPOM.clickABita(driver).click();
 		Thread.sleep(500);
-		CFOcountPOM.clickClear(driver).click();*/
+		CFOcountPOM.clickClear(driver).click();
 		driver.switchTo().defaultContent();
 		Thread.sleep(3000);
 		CFOcountPOM.closeCategories(driver).click();
@@ -305,6 +309,12 @@ public class Mgmt {
 			test.log(LogStatus.INFO, "overView success");
 			CFOcountPOM.closeDocument(driver).click();
 			Thread.sleep(3000);
+			OverduePOM.clickRiskShowAll(driver).click();
+			Thread.sleep(1000);
+			OverduePOM.clickRiskSAhigh(driver).click();
+			Thread.sleep(1000);
+			OverduePOM.clickclearBtn(driver).click();
+			test.log(LogStatus.INFO, "Clear successfully");
 			driver.switchTo().defaultContent();
 			Thread.sleep(3000);
 			CFOcountPOM.closeCategories(driver).click();
@@ -648,10 +658,10 @@ public class Mgmt {
 				test.log(LogStatus.SKIP, "'Low' Risk Compliance Count = "+low);
 			}
 			
-			Thread.sleep(500);
+			Thread.sleep(1000);
 			action.moveToElement(CFOcountPOM.clickBack1(driver)).click().build().perform();	 //Clicking on Back button
 			
-			Thread.sleep(500);
+			Thread.sleep(1000);
 			performer.OverduePOM.clickDashboard(driver).click();			//Clicking on Dashboard
 		}
 		else
@@ -1940,7 +1950,7 @@ public class Mgmt {
 		Thread.sleep(2000);
 		Actions action = new Actions(driver);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,300)");						//Scrolling down window by 1000 px.
+	//	js.executeScript("window.scrollBy(0,300)");						//Scrolling down window by 1000 px.
 		Thread.sleep(800);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IFNewPeriodGraphCompliance"));                                                            	
@@ -2036,8 +2046,8 @@ public class Mgmt {
 		test.log(LogStatus.INFO, "Test Initiated");
 		Thread.sleep(2000);
 		Actions action = new Actions(driver);
-		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,300)");						//Scrolling down window by 1000 px.
+	//	JavascriptExecutor js = (JavascriptExecutor) driver;
+	//	js.executeScript("window.scrollBy(0,300)");						//Scrolling down window by 1000 px.
 		Thread.sleep(800);
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IFNewPeriodGraphCompliance"));                                                            	
@@ -2131,7 +2141,7 @@ public class Mgmt {
 		}
 	}
 	
-	//@Test(priority = 28)
+//	@Test(priority = 28)
 	void NotApplicable_PieChartPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Completion Status- 'Not Applicable' Count Verification");
@@ -2872,7 +2882,8 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[11]/a");
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(70));
 		Thread.sleep(2000);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,5525)");					//Scrolling down window by 2600 px.
+		//js.executeScript("window.scrollBy(0,5525)");					//Scrolling down window by 2600 px.
+		js.executeScript("window.scrollBy(0,4225)");	
 		Thread.sleep(2000);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='collapsePerformerCalender']")));
 		Thread.sleep(5000);
@@ -2942,7 +2953,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[6]/a");
 		test.log(LogStatus.INFO, "Test Initiated");
 		
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,6600)");					//Scrolling down window by 2600 px.
+		js.executeScript("window.scrollBy(0,4600)");					//Scrolling down window by 2600 px.
 	//	js.executeScript("window.scrollBy(0,500)");
 		Thread.sleep(500);	
 		CFOcountPOM.clickViewAllDU(driver).click();
@@ -2953,6 +2964,17 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[6]/a");
 		Thread.sleep(4000);	
 		CFOcountPOM.closeNewsView(driver).click();
 		Thread.sleep(1000);
+		test.log(LogStatus.PASS, "view Succefully");
+		OverduePOM.searchBox(driver).sendKeys("NSE issued the MFSS Settlement Calendar");
+		Thread.sleep(500);
+		OverduePOM.ClicksearchBtn(driver).click();
+		Thread.sleep(7000);
+		test.log(LogStatus.PASS, "Search Succefully");
+		Thread.sleep(1000);
+		OverduePOM.ClickClearBtn(driver).click();
+		Thread.sleep(8000);
+		test.log(LogStatus.PASS, "Clear button Working Succefully");
+	
 		performer.OverduePOM.clickDashboard(driver).click();
 		
 		extent.endTest(test);
@@ -2985,7 +3007,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[6]/a");
 	}
 	
 	
-/*	@Test(priority = 38)
+	@Test(priority = 38)
 	void StandardReportOverall() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Standard Report -Overall Verification");
@@ -3310,7 +3332,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[6]/a");
 		extent.flush();
 	}
 	
-	@Test(priority = 62) // pass
+//	@Test(priority = 62) // pass
 	void MyReminderStatutory() throws InterruptedException, IOException
 	{
 		test = extent.startTest("My Reminder - Statutory Count Verification");
@@ -3374,7 +3396,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[6]/a");
 		extent.flush();
 	}
 	
-	@Test(priority = 65) // pass
+	//@Test(priority = 65) // pass
 	void MessageCenter() throws InterruptedException, IOException
 	{
 		test = extent.startTest(" Message Center - Verification");
@@ -3443,7 +3465,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[6]/a");
 	 
 		 
 		 
-		*/ 
+		 
 		 
 		 
 		 

@@ -6,7 +6,7 @@
       <class name="departmentHead.DeptcountStatutory">
         <methods>
           <include name="setBrowser"/>
-          <include name="ActRepository"/>
+          <include name="ComplianceDocuments"/>
         </methods>
       </class> <!-- departmentHead.DeptcountStatutory -->
     </classes>

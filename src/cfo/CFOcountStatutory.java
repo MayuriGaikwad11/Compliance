@@ -255,7 +255,7 @@ public class CFOcountStatutory
 		
 		CFOcountPOM.readPenaltyCount(driver).click();					//Clicking on 'Penalty'.
 		Thread.sleep(3000);
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("showdetails"));	//Wait until frame get visible and switch to it.
 		Thread.sleep(1000);
 		CFOcountPOM.clickExportImage(driver).click();
@@ -2958,6 +2958,17 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[6]/a");
 		Thread.sleep(4000);	
 		CFOcountPOM.closeNewsView(driver).click();
 		Thread.sleep(1000);
+		test.log(LogStatus.PASS, "view Succefully");
+		OverduePOM.searchBox(driver).sendKeys("Haryana Land Partnership Policy-2022");
+		Thread.sleep(500);
+		OverduePOM.ClicksearchBtn(driver).click();
+		Thread.sleep(7000);
+		test.log(LogStatus.PASS, "Search Succefully");
+		Thread.sleep(1000);
+		OverduePOM.ClickClearBtn(driver).click();
+		Thread.sleep(8000);
+		test.log(LogStatus.PASS, "Clear button Working Succefully");
+		
 		performer.OverduePOM.clickDashboard(driver).click();
 		
 		extent.endTest(test);

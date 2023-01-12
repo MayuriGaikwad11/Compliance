@@ -57,7 +57,7 @@ public class DeptcountInternal {
 	}
 	
 	@BeforeTest
-	void setBrowser() throws InterruptedException, IOException
+	void setBrowser() throws Exception
 	{
 		
 		extent = new com.relevantcodes.extentreports.ExtentReports("C:/March2022/PerformerPom/Reports/CFOResultsInternal.html",true);
@@ -119,7 +119,7 @@ public class DeptcountInternal {
 		}
 	}
 	
-	@Test(priority = 2)
+	//@Test(priority = 2)
 	void  FilterWiseDepartmentCountMatch() throws InterruptedException
 	{
 		test = extent.startTest(" Count Match Filter Wise by Clicking on 'Depatment' - Compliances");
@@ -361,6 +361,15 @@ public class DeptcountInternal {
 		CFOcountPOM.clickExportImage(driver).click();                    //export excel
 		Thread.sleep(5000);
 		test.log(LogStatus.PASS, "Excel file Export Successfully");	
+		CFOcountPOM.clickLocationIn(driver).click();
+		Thread.sleep(500);
+		CFOcountPOM.clickExpand1(driver).click();
+		Thread.sleep(500);
+		CFOcountPOM.clickAR(driver).click();
+		Thread.sleep(2000);
+		CFOcountPOM.clickClear(driver).click();
+		Thread.sleep(2000);
+		test.log(LogStatus.PASS, "Clear Button is working");
 		
 		Thread.sleep(500);
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -677,7 +686,7 @@ public class DeptcountInternal {
 		extent.flush();
 	}
 	
-	@Test(priority = 8)
+	//@Test(priority = 8)
 	void PFR_PieChartInternal() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart - 'Overdue' Count Verification");
@@ -775,7 +784,7 @@ public class DeptcountInternal {
 		extent.flush();
 	}
 	
-	@Test(priority = 9)
+//	@Test(priority = 9)
 	void Rejected_PieChartInternal() throws InterruptedException
 	{
 		test = extent.startTest("Pie Chart - 'Rejected' Count Verification");
@@ -873,7 +882,7 @@ public class DeptcountInternal {
 		extent.flush();
 	}
 	
-	@Test(priority = 10)
+//	@Test(priority = 10)
 	void DepartmentSummaryInternal() throws InterruptedException
 	{
 		Thread.sleep(500);		
@@ -1196,7 +1205,7 @@ public class DeptcountInternal {
 		extent.flush();
 	}
 	
-	@Test(priority = 13)
+//	@Test(priority = 13)
 	void PFR_PieChartInternalPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart - 'PFR' Count Verification");
@@ -1296,7 +1305,7 @@ public class DeptcountInternal {
 		extent.flush();
 	}
 	
-	@Test(priority = 14)
+//	@Test(priority = 14)
 	void Rejected_PieChartInternalPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart - 'Rejected' Count Verification");

@@ -95,7 +95,13 @@ public class CFOcountPOM
 	{
 		compliances = driver.findElement(By.xpath("//*[@id='example']/div/span/span/span[3]"));
 		return compliances;
-	} 
+	} //*[@id="example"]/div[1]/div[1]/div/span[1]
+	
+	public static WebElement clickLocationIn(WebDriver driver)		//Method for reading Compliances value on Dashboard
+	{
+		compliances = driver.findElement(By.xpath("//*[@id='example']/div[1]/div[1]/div/span[1]"));
+		return compliances;
+	}
 	
 	public static WebElement clickLocationPe(WebDriver driver)		//Method for reading Compliances value on Dashboard
 	{
@@ -115,6 +121,13 @@ public class CFOcountPOM
 		return compliances;
 	} 
 	
+	public static WebElement clickABita(WebDriver driver)		//Method for reading Compliances value on Dashboard
+	{
+		compliances = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[9]"));
+		return compliances;
+	} 
+	
+
 	
 	public static WebElement clickAVIPL(WebDriver driver)		//Method for reading Compliances value on Dashboard
 	{

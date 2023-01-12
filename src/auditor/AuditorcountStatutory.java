@@ -1987,6 +1987,17 @@ public class AuditorcountStatutory {
 			Thread.sleep(4000);	
 			CFOcountPOM.closeNewsView(driver).click();
 			Thread.sleep(1000);
+			test.log(LogStatus.PASS, "view Succefully");
+			OverduePOM.searchBox(driver).sendKeys("Haryana Land Partnership Policy-2022");
+			Thread.sleep(500);
+			OverduePOM.ClicksearchBtn(driver).click();
+			Thread.sleep(7000);
+			test.log(LogStatus.PASS, "Search Succefully");
+			Thread.sleep(1000);
+			OverduePOM.ClickClearBtn(driver).click();
+			Thread.sleep(8000);
+			test.log(LogStatus.PASS, "Clear button Working Succefully");
+			
 			performer.OverduePOM.clickDashboard(driver).click();
 			
 			extent.endTest(test);

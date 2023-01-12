@@ -577,6 +577,42 @@ public class OverduePOM
 		return performer;
 	}
 	
+	public static WebElement clickRiskShowAll(WebDriver driver)			//Searching 'My Workspace' element.
+	{
+		performer = driver.findElement(By.xpath("//*[@id='example']/div[1]/div[2]/div/span[1]"));	//*[@onclick='CheckProduct();']
+		return performer;
+	}
+	
+	public static WebElement clickRiskSAhigh(WebDriver driver)			//Searching 'My Workspace' element.
+	{
+		performer = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[2]"));	//*[@onclick='CheckProduct();']
+		return performer;
+	}
+	
+	public static WebElement clickRiskDE(WebDriver driver)			//Searching 'My Workspace' element.
+	{
+		performer = driver.findElement(By.xpath("//*[@id='grid']/div[1]/div[1]/div/div[3]/div/span[1]"));	//*[@onclick='CheckProduct();']
+		return performer;
+	}
+	
+	public static WebElement SelectStatus(WebDriver driver)			//Searching 'My Workspace' element.
+	{
+		performer = driver.findElement(By.xpath("//*[@id='dvdropdownUser']/div/div"));	//*[@onclick='CheckProduct();']
+		return performer;
+	}
+	
+	public static WebElement SelectstatusCD(WebDriver driver)			//Searching 'My Workspace' element.
+	{
+		performer = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[18]"));	//*[@onclick='CheckProduct();']
+		return performer;
+	}
+	
+	public static WebElement clickHighDE(WebDriver driver)			//Searching 'My Workspace' element.
+	{
+		performer = driver.findElement(By.xpath("(//span[@class='k-checkbox-label checkbox-span'])[6]"));	//*[@onclick='CheckProduct();']
+		return performer;
+	}
+	
 	public static WebElement clickRiskDA(WebDriver driver)			//Searching 'My Workspace' element.
 	{
 		performer = driver.findElement(By.xpath("//*[@id='divAdvanceSearchModel']/div[1]/div[4]/div"));	//*[@onclick='CheckProduct();']

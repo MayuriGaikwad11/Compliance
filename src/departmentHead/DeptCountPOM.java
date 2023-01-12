@@ -1138,7 +1138,113 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[19]/a");
 			OverduePOM.clickDashboard(driver).click();
 	}
 	
-	
+	public static void complianceDocuments(ExtentTest test, WebDriver driver) throws InterruptedException, IOException
+	{
+		
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(140));
+	    
+		Thread.sleep(500);
+		CFOcountPOM.clickDocuments(driver).click();					//Clicking on 'My Documents'
+		Thread.sleep(3000);
+		CFOcountPOM.clickComplianceDocuments(driver).click();			//Clicking on 'Compliance Documents ' 
+		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='k-selectable']")));	//Wait till records table gets visible
+	/*	Thread.sleep(2000);
+		 By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[3]/td[11]/a");
+
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+			Thread.sleep(4000);
+			List<WebElement> ViewButton = driver.findElements(locator);	
+			Thread.sleep(3000);
+			ViewButton.get(0).click();
+			Thread.sleep(4000);
+			CFOcountPOM.closeDocument1(driver).click();
+			Thread.sleep(3000);
+			ViewButton.get(1).click();
+			Thread.sleep(4000);
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("DownloadViews"));
+			CFOcountPOM.clickDownloadBtn(driver).click();
+			Thread.sleep(2000);
+			driver.switchTo().defaultContent();
+			CFOcountPOM.closeDownloadTab(driver).click();
+			Thread.sleep(3000);
+			ViewButton.get(2).click();
+			Thread.sleep(5000);
+			CFOcountPOM.closeDocument2(driver).click();
+			Thread.sleep(5000);
+			 By locator1 = By.xpath("//*[@id='sel_chkbxMain']");
+
+				wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
+				Thread.sleep(4000);
+				// retrieving "foo-button" HTML element
+				List<WebElement> ChechBoxes = driver.findElements(locator1);	
+				Thread.sleep(3000);
+				ChechBoxes.get(0).click();
+				Thread.sleep(500);
+				ChechBoxes.get(1).click();
+				Thread.sleep(500);
+				ChechBoxes.get(3).click();
+				Thread.sleep(3000);
+				driver.findElement(By.xpath("//*[@id='dvbtndownloadDocumentMain']")).click();
+				Thread.sleep(3000);*/
+				OverduePOM.clickRiskDE(driver).click();
+				Thread.sleep(2000);
+				OverduePOM.clickHighDE(driver).click();
+				Thread.sleep(2000);
+				OverduePOM.clickclearBtn(driver).click();
+				Thread.sleep(2000);
+				CFOcountPOM.clickAdvancedSearch(driver).click();
+				Thread.sleep(3000);
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(//*[@class='k-selectable'])[2]")));	//Wait till records table gets visible
+			Thread.sleep(3000);
+			By locator2 = By.xpath("//*[@id='grid1']/div[2]/table/tbody/tr[3]/td[19]/a");
+			
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator2));
+			Thread.sleep(4000);
+			List<WebElement> ViewButton1 = driver.findElements(locator2);	
+			Thread.sleep(3000);
+			ViewButton1.get(0).click();
+			Thread.sleep(5000);
+			CFOcountPOM.closeDocument1(driver).click();
+			Thread.sleep(3000);
+			ViewButton1.get(1).click();
+			Thread.sleep(4000);
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("DownloadViews"));
+			CFOcountPOM.clickDownloadBtn(driver).click();
+			Thread.sleep(2000);
+			driver.switchTo().defaultContent();
+			CFOcountPOM.closeDownloadTab(driver).click();
+			Thread.sleep(3000);
+			ViewButton1.get(2).click();
+			Thread.sleep(5000);
+			CFOcountPOM.closeDocument2(driver).click();
+			Thread.sleep(5000);
+			 By locator3 = By.xpath("//*[@id='sel_chkbx']");
+
+				wait.until(ExpectedConditions.presenceOfElementLocated(locator3));
+				Thread.sleep(4000);
+				// retrieving "foo-button" HTML element
+				List<WebElement> ChechBoxes1 = driver.findElements(locator3);	
+				Thread.sleep(3000);
+				ChechBoxes1.get(0).click();
+				Thread.sleep(500);
+				ChechBoxes1.get(1).click();
+				Thread.sleep(500);
+				ChechBoxes1.get(2).click();
+				Thread.sleep(3000);
+				driver.findElement(By.xpath("//*[@id='dvbtndownloadDocument']")).click();
+				Thread.sleep(4000);
+				OverduePOM.SelectStatus(driver).click();
+				Thread.sleep(1000);
+				OverduePOM.SelectstatusCD(driver).click();
+				Thread.sleep(2000);
+				OverduePOM.clickclearBtnA(driver).click();
+				driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/a[4]")).click();
+			//	CFOcountPOM.closeDocumentAS(driver).click();
+				Thread.sleep(3000);
+				OverduePOM.clickDashboard(driver).click();
+		
+	}
 
 
 	
