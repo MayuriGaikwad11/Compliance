@@ -5152,7 +5152,7 @@ WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(140));
 		Thread.sleep(2000);
 		
 		 By locator = By.xpath("//*[@id='grid']/div[4]/table/tbody/tr[2]/td[5]/a");
-
+		//*[@id="grid"]/div[4]/table/tbody/tr[1]/td[5]/a[1]
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			Thread.sleep(4000);
 			List<WebElement> ViewButton = driver.findElements(locator);	
@@ -5638,13 +5638,13 @@ WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(140));
 		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='grid1']/div[3]")));	//Wait till records table gets visible
 	Thread.sleep(1000);
-	OverduePOM.clickcomplianceTypeAS(driver).click();
+/*	OverduePOM.clickcomplianceTypeAS(driver).click();
 	Thread.sleep(1000);
 	OverduePOM.clickcomplianceStaASM(driver).click();
 	Thread.sleep(1000);
-	OverduePOM.clickcomplianceINASM(driver).click();
+	OverduePOM.clickcomplianceINASM(driver).click();*/
 	
-	/*	Thread.sleep(3000);
+		Thread.sleep(3000);
 		By locator1 = By.xpath("//*[@id='grid1']/div[3]/table/tbody/tr[2]/td[23]/a");
 		
 		wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
@@ -5706,7 +5706,7 @@ WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(140));
 			CFOcountPOM.clickLastDate11(driver).sendKeys("30-Nov-2022");
 			Thread.sleep(2000);
 			CFOcountPOM.clickApplyAd(driver).click();
-			Thread.sleep(3000);*/
+			Thread.sleep(3000);
 	CFOcountPOM.clickExportExcel(driver).click();
         	Thread.sleep(3000);
 			OverduePOM.clickRiskDA(driver).click();

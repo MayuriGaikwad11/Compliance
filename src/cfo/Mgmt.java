@@ -17,6 +17,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -115,7 +116,7 @@ public class Mgmt {
 			
 		}
 	}
-
+	
 	@Test(priority = 2)
 	void CategoriesCountMatch() throws InterruptedException, IOException
 	{
@@ -1572,7 +1573,7 @@ public class Mgmt {
 	//	JavascriptExecutor js = (JavascriptExecutor) driver;
 	//	js.executeScript("window.scrollBy(0,1000)");	
 		Thread.sleep(1000);
-		String NotCompleted = CFOcountPOM.clickRiskCriticalNotCompleted(driver).getText();		//Reading the Closed Timely value of Human Resource
+		String NotCompleted = CFOcountPOM.clickRiskHighNotCompleted(driver).getText();		//Reading the Closed Timely value of Human Resource
 		NotCompleted = NotCompleted.replaceAll(" ","");									//Removing all white spaces from string. 
 		int RiskHigh_NotCompleted = Integer.parseInt(NotCompleted);
 	
@@ -1628,7 +1629,7 @@ public class Mgmt {
 		//JavascriptExecutor js = (JavascriptExecutor) driver;
 		//js.executeScript("window.scrollBy(0,1450)");
 		Thread.sleep(1000);
-		String NotCompleted = CFOcountPOM.clickRiskCriticalNotCompleted(driver).getText();		//Reading the Closed Timely value of Human Resource
+		String NotCompleted = CFOcountPOM.clickRiskMediumNotCompleted(driver).getText();		//Reading the Closed Timely value of Human Resource
 		NotCompleted = NotCompleted.replaceAll(" ","");									//Removing all white spaces from string. 
 		int RiskMedium_NotCompleted = Integer.parseInt(NotCompleted);
 	
@@ -1684,7 +1685,7 @@ public class Mgmt {
 		test.log(LogStatus.INFO, "Test Initiated");
 	//	driver.navigate().refresh();
 		Thread.sleep(500);
-		String NotCompleted = CFOcountPOM.clickRiskCriticalNotCompleted(driver).getText();		//Reading the Closed Timely value of Human Resource
+		String NotCompleted = CFOcountPOM.clickRiskLowNotCompleted(driver).getText();		//Reading the Closed Timely value of Human Resource
 		NotCompleted = NotCompleted.replaceAll(" ","");									//Removing all white spaces from string. 
 		int RiskLow_NotCompleted = Integer.parseInt(NotCompleted);
 	
@@ -2112,7 +2113,7 @@ public class Mgmt {
 			if(low > 0)
 			{
 				wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("IFNewPeriodGraphCompliance"));                                                            	
-				Thread.sleep(500);
+				Thread.sleep(1000);
 				CFOcountPOM.GraphCountInPe(driver, test, "Low", low, "Statutory");
 			}
 			else
@@ -2337,7 +2338,7 @@ public class Mgmt {
 		extent.flush();
 	}
 	
-	@Test(priority = 30)
+	//@Test(priority = 30)
 	void dueToday_PieChartPeriod() throws InterruptedException
 	{
 		test = extent.startTest("Period-Pie Chart -Not Completed Status- 'dueToday' Count Verification");
@@ -2893,8 +2894,8 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[1]/td[11]/a");
 		 Thread.sleep(2000);
 			test.log(LogStatus.PASS, "Excel file Export Successfully");
 			Thread.sleep(3000);
-By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[6]/a");
-			
+By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
+
 			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 			Thread.sleep(2000);
 			// retrieving "foo-button" HTML element
@@ -2922,7 +2923,7 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[6]/a");
 			 Thread.sleep(2000);
 				test.log(LogStatus.PASS, "Excel file Export Successfully");
 				Thread.sleep(3000);
-	By locator1 = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[6]/a");
+	By locator1 = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr/td[6]/a");
 	
 				wait.until(ExpectedConditions.presenceOfElementLocated(locator1));
 				Thread.sleep(2000);
@@ -3463,8 +3464,13 @@ By locator = By.xpath("//*[@id='grid']/div[3]/table/tbody/tr[2]/td[6]/a");
 				extent.flush();
 			}
 	 
-		 
-		 
+		 @AfterTest
+			void Closing() throws InterruptedException
+			{
+				//Thread.sleep(1000);
+				//driver.close();
+			}	 
+		
 		 
 		 
 		 

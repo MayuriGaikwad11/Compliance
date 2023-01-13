@@ -1883,6 +1883,52 @@ public class MethodsPOM
 		OverduePOM.clickDashboard(driver).click();					//Clicking on Dashboard
 	}
 	
+	public static void UpcomingComplianceADView(WebDriver driver, ExtentTest test) throws InterruptedException
+	{
+		
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(50));
+		Thread.sleep(500);
+		wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.clickUpcomingStatutory(driver)));	//Waiting for 'Upcoming Statutory' count to be clickable.
+		OverduePOM.clickUpcomingStatutory(driver).click();
+		Thread.sleep(2000);
+		Thread.sleep(1000);
+		wait.until(ExpectedConditions.elementToBeClickable(OverduePOM.checkTable(driver)));	//Waiting for records table to get displayed.
+	
+		elementsList1 = OverduePOM.clickCalenderAction(driver);	//Getting all action buttons (Statutory/Internal)
+		elementsList1.get(0).click();					//Clicking on ith action button which has blue status 
+		Thread.sleep(2000);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("iPerformerFrame"));
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='ActDetails']")));	//Waiting for records table to get visible.
+		
+		OverduePOM.clickActDetails(driver).click();
+		Thread.sleep(3000);
+		OverduePOM.clickAct(driver).click();
+		Thread.sleep(3000);
+	String view=	OverduePOM.clickView(driver).getText();
+         	Thread.sleep(1000);
+		if(view.equalsIgnoreCase("View"))
+		{
+			Thread.sleep(3000);
+			OverduePOM.clickView(driver).click();
+			Thread.sleep(8000);
+			OverduePOM.closeView(driver).click();
+			Thread.sleep(4000);
+			test.log(LogStatus.PASS, "View Button is present and View Successfully");
+		}else {
+			test.log(LogStatus.FAIL, "View Button is not present");
+		}
+		driver.switchTo().parentFrame();
+		Thread.sleep(3000);
+		OverduePOM.closeTab(driver).click();
+		
+
+		Thread.sleep(500);
+		OverduePOM.clickDashboard(driver).click();	
+		
+		
+	}
+	
 	public static void UpcomingCompliance(WebDriver driver, ExtentTest test, String Compliance) throws InterruptedException
 	{
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
@@ -3700,8 +3746,44 @@ public class MethodsPOM
 		OverduePOM.ClickCreateTicket(driver).click();
 		Thread.sleep(1000);
 		test.log(LogStatus.PASS, "Msg Displayed -'Ticket raised Successfully'");
+			
+	}
+	
+	public static void ActDocuments(ExtentTest test, WebDriver driver) throws InterruptedException, IOException
+	{
 		
+WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(40));
+	    
+		Thread.sleep(500);
+		CFOcountPOM.clickDocuments(driver).click();					//Clicking on 'My Documents'
+		Thread.sleep(3000);
+		CFOcountPOM.clickActDocuments(driver).click();			//Clicking on 'Act Documents ' 
+		Thread.sleep(3000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='k-selectable']")));	//Wait till records table gets visible
+		Thread.sleep(2000);
+		
+		 By locator = By.xpath("//*[@id='grid']/div[4]/table/tbody/tr[1]/td[5]/a");
+		
+			wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+			Thread.sleep(4000);
+			List<WebElement> ViewButton = driver.findElements(locator);	
+			Thread.sleep(3000);
+			ViewButton.get(0).click();
+			Thread.sleep(4000);
+			CFOcountPOM.closeDocument1(driver).click();
+			Thread.sleep(3000);
+			ViewButton.get(1).click();
+			Thread.sleep(4000);
+			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt("DownloadViews"));
+			driver.findElement(By.xpath("//*[@id='basic']/tbody/tr[3]/td[2]")).click();
+			Thread.sleep(4000);
+			driver.switchTo().defaultContent();
+			CFOcountPOM.closeDownloadTab(driver).click();
+			Thread.sleep(3000);
+		
+			performer.OverduePOM.clickDashboard(driver).click();
 		
 	}
+	
 	
 }

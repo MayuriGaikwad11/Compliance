@@ -1635,6 +1635,38 @@ public class OverduePOM
 		return performer;
 	}
 	
+	public static WebElement clickActDetails(WebDriver driver)				//Searching table
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ActDetails']/div/div/div/div[1]/div/div/a"));
+		return performer;
+	}
+	
+	public static WebElement clickAct(WebDriver driver)				//Searching table
+	{
+		performer = driver.findElement(By.xpath("//*[@id='basic']/tbody/tr[1]/td/span"));
+		return performer;
+	}
+	
+	public static WebElement clickView(WebDriver driver)				//Searching table
+	{
+		performer = driver.findElement(By.xpath("//*[@id='basic']/tbody/tr[2]/td[3]"));
+		return performer;
+	}
+	
+	public static WebElement closeView(WebDriver driver)				//Searching table
+	{
+		performer = driver.findElement(By.xpath("//*[@id='divPerActOverView']/div/div/div[1]/button"));
+		return performer;
+	}
+	
+	
+	public static WebElement closeTab(WebDriver driver)				//Searching table
+	{
+		performer = driver.findElement(By.xpath("//*[@id='ComplaincePerformer']/div/div/div[1]/button"));
+		return performer;
+	}
+	
+	
 	public static WebElement checkTable1(WebDriver driver)				//Searching table
 	{
 		performer = driver.findElement(By.xpath("(//*[@class='k-grid-content k-auto-scrollable'])[2]"));

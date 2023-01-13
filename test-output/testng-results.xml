@@ -2,24 +2,28 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="130964" started-at="2023-01-12T16:38:47 IST" finished-at="2023-01-12T16:40:58 IST">
+  <suite name="Default suite" duration-ms="177662" started-at="2023-01-13T18:10:35 IST" finished-at="2023-01-13T18:13:33 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="130964" started-at="2023-01-12T16:38:47 IST" finished-at="2023-01-12T16:40:58 IST">
-      <class name="departmentHead.DeptcountStatutory">
-        <test-method status="PASS" signature="setBrowser()[pri:0, instance:departmentHead.DeptcountStatutory@151b3e0]" name="setBrowser" is-config="true" duration-ms="34249" started-at="2023-01-12T16:38:47 IST" finished-at="2023-01-12T16:39:21 IST">
+    <test name="Default test" duration-ms="177662" started-at="2023-01-13T18:10:35 IST" finished-at="2023-01-13T18:13:33 IST">
+      <class name="companyadmin.CompanyCount">
+        <test-method status="PASS" signature="setBrowser()[pri:0, instance:companyadmin.CompanyCount@b9e255]" name="setBrowser" is-config="true" duration-ms="28318" started-at="2023-01-13T18:10:35 IST" finished-at="2023-01-13T18:11:04 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setBrowser -->
-        <test-method status="PASS" signature="Login()[pri:1, instance:departmentHead.DeptcountStatutory@151b3e0]" name="Login" duration-ms="54983" started-at="2023-01-12T16:39:22 IST" finished-at="2023-01-12T16:40:17 IST">
+        <test-method status="PASS" signature="Login()[pri:1, instance:companyadmin.CompanyCount@b9e255]" name="Login" duration-ms="27620" started-at="2023-01-13T18:11:04 IST" finished-at="2023-01-13T18:11:31 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="SummaryofOverdueCompliances()[pri:6, instance:departmentHead.DeptcountStatutory@151b3e0]" name="SummaryofOverdueCompliances" duration-ms="41624" started-at="2023-01-12T16:40:17 IST" finished-at="2023-01-12T16:40:58 IST">
+        <test-method status="PASS" signature="Reports()[pri:2, instance:companyadmin.CompanyCount@b9e255]" name="Reports" duration-ms="119894" started-at="2023-01-13T18:11:31 IST" finished-at="2023-01-13T18:13:31 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- SummaryofOverdueCompliances -->
-      </class> <!-- departmentHead.DeptcountStatutory -->
+        </test-method> <!-- Reports -->
+        <test-method status="PASS" signature="Closing()[pri:0, instance:companyadmin.CompanyCount@b9e255]" name="Closing" is-config="true" duration-ms="1754" started-at="2023-01-13T18:13:31 IST" finished-at="2023-01-13T18:13:33 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Closing -->
+      </class> <!-- companyadmin.CompanyCount -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

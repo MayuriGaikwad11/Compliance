@@ -142,6 +142,10 @@ public class Login
 			{
 				ans1 = "123";						//Storing the answer in ans variable.
 			}
+			else if(method.equalsIgnoreCase("compayAdmin"))
+			{
+				ans1 = "123";						//Storing the answer in ans variable.
+			}
 			else
 			{
 				ans1 = getAnswer(que1);							//Storing the answer in ans variable.
@@ -189,6 +193,10 @@ public class Login
 				ans2 = "123";						//Storing the answer in ans variable.
 			}
 			else if(method.equalsIgnoreCase("amruta") )
+			{
+				ans2 = "123";						//Storing the answer in ans variable.
+			}
+			else if(method.equalsIgnoreCase("compayAdmin") )
 			{
 				ans2 = "123";						//Storing the answer in ans variable.
 			}
@@ -262,6 +270,8 @@ public class Login
 		return ans.toLowerCase();
 		//return ans.toLowerCase();							//Returning answer and converting to LowerCase too.  
 	}
+	
+	
 	
 	public static String getAnswerCFO(String que)			//Method created to extract last word from question
 	{														//as it is the answer of the question.

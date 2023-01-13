@@ -122,7 +122,19 @@ public class OverdueCount
 		test = extent.startTest("Statutory Upcoming Compliance Verification");
 		test.log(LogStatus.INFO, "Test Initiated");
 		Thread.sleep(3000);
+		
 		MethodsPOM.UpcomingCompliance(driver, test, "Statutory");
+		extent.endTest(test);
+		extent.flush();
+	}
+	
+	@Test(priority = 2)//pass
+	void Upcoming_ComplianceStatutoryCkeckView() throws InterruptedException
+	{
+		test = extent.startTest("Statutory Upcoming Compliance Check View Button Verification");
+		test.log(LogStatus.INFO, "Test Initiated");
+		Thread.sleep(3000);
+		MethodsPOM.UpcomingComplianceADView(driver, test);
 		
 		extent.endTest(test);
 		extent.flush();
@@ -556,7 +568,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	@Test(priority = 12) 
+//	@Test(priority = 12) 
 	void DetailedReport() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Detailed Report -Statutory Count Verification");
@@ -581,7 +593,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	@Test(priority = 14) //pass
+//	@Test(priority = 14) //pass
 	void AssignmentReport() throws InterruptedException, IOException
 	{
 		test = extent.startTest("Assignment Report count verification");
@@ -593,7 +605,7 @@ public class OverdueCount
 		extent.flush();
 	}
 	
-	 @Test(priority = 15) //pass 
+	// @Test(priority = 15) //pass 
      void TaskReport() throws InterruptedException
 			{
 				test = extent.startTest("Task Report Verification");
@@ -605,7 +617,7 @@ public class OverdueCount
 				extent.flush();
 			}
      
- 	@Test(priority = 16)
+ //	@Test(priority = 16)
  	void ComplianceRepository() throws InterruptedException, IOException
  	{
  		test = extent.startTest("Compliance Repository/Act Repository  verification");
@@ -2206,7 +2218,7 @@ public class OverdueCount
 				extent.flush();
 			}
 			
-			 @Test(priority = 39)
+		//	 @Test(priority = 39)
 				void SupportTicket() throws InterruptedException, IOException
 				{
 					Thread.sleep(1000);		
@@ -2251,22 +2263,9 @@ public class OverdueCount
 				OverduePOM.ClickLivechat(driver).click();*/
 				extent.endTest(test);
 				extent.flush();
-			}   
+			}          
 	       
-	       
-	       
-	       
-	       
-	       
-	       
-	       
-	       
-	       
-	       
-	       
-	       
-	       
-	 @Test(priority = 40) //pass 
+	// @Test(priority = 40) //pass 
 	       void EventReport() throws InterruptedException
 				{
 					test = extent.startTest("Event Report Verification");
@@ -2380,6 +2379,17 @@ public class OverdueCount
   		extent.endTest(test);
   		extent.flush();
 			}
+      @Test(priority = 61)
+  	void ActDocuments() throws InterruptedException, IOException
+  	{
+  		test = extent.startTest("Act Documents  verification");
+  		test.log(LogStatus.INFO, "Test Initiated");
+  		
+  		MethodsPOM.ActDocuments(test,driver);
+  		
+  		extent.endTest(test);
+  		extent.flush();
+  	}
 		       
 		       
 		       
