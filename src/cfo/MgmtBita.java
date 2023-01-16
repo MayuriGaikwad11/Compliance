@@ -53,7 +53,7 @@ public class MgmtBita {
 	}
 	
 	@BeforeTest
-	void setBrowser() throws InterruptedException, IOException
+	void setBrowser() throws Exception
 	{
 		extent = new com.relevantcodes.extentreports.ExtentReports("C:/March2022/PerformerPom/Reports/CFOResultsStatotory.html",true);
 		test = extent.startTest("Verify OpenBrowser");
@@ -64,7 +64,7 @@ public class MgmtBita {
 		Cell c1 = row0.getCell(1);						//Selected cell (0 row,1 column)
 		String URL = c1.getStringCellValue();			//Got the URL stored at position 0,1
 		
-		login.Login.BrowserSetup(URL);					//Method of Login class to set browser.
+		login.Login.BrowserSetup1(URL,"firefox");					//Method of Login class to set browser.
 		
 		test.log(LogStatus.PASS, "Test Passed.");
 		extent.endTest(test);

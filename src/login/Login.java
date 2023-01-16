@@ -3,12 +3,13 @@ package login;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -32,17 +33,17 @@ public class Login
 	//	driver = new EdgeDriver();					//Created new Chrome driver instance. 
 	//	WebDriverManager.firefoxdriver().setup();
 	//	driver = new FirefoxDriver();
-		
+			
 		driver.manage().window().maximize();			//Set window size to maximum.
 		driver.get(URL);								//Set the URL of WebApplication.
 	}
 	
 	public static void BrowserSetup1(String URL,String browser) throws Exception
 	{
-	
-		if(browser.equalsIgnoreCase("firefox")){
+		
+			if(browser.equalsIgnoreCase("firefox")){
 			 //create firefox instance
-				System.setProperty("webdriver.gecko.driver", "C:/March2022/PerformerPom/FireDriver/setup-stub.exe");
+				System.setProperty("webdriver.gecko.driver", "C:/March2022/PerformerPom/Driver/geckodriver.exe");
 				driver = new FirefoxDriver();
 			}
 			//Check if parameter passed as 'chrome'
@@ -59,6 +60,18 @@ public class Login
 						System.setProperty("webdriver.edge.driver","C:/March2022/PerformerPom/edgeDriver/msedgedriver.exe");
 						//create Edge instance
 						driver = new EdgeDriver();
+					}//3.141.0
+					else if(browser.equalsIgnoreCase("opera")){
+						//set path to Edge.exeMicrosoftWebDriver
+						System.setProperty("webdriver.opera.driver","C:/March2022/PerformerPom/operaDri/operadriver.exe");
+						//create Edge instance
+						driver = new OperaDriver();
+					}
+					else if(browser.equalsIgnoreCase("IE")){
+						//set path to Edge.exeMicrosoftWebDriver
+						System.setProperty("webdriver.ie.driver","C:/March2022/PerformerPom/IEDriver/IEDriverServer.exe");
+						//create Edge instance
+						driver = new InternetExplorerDriver();
 					}
 			else{
 				//If no browser passed throw exception
